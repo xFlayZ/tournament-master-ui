@@ -1,0 +1,36 @@
+<div class="card">
+  <div class="card-body">
+    <h2 class="card-title">Liga-Tabelle</h2>
+
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>#</th>
+          <th>Mannschaft</th>
+          <th>Punkte</th>
+          <th>Spiele</th>
+          <th>Siege</th>
+          <th>Unentschieden</th>
+          <th>Niederlagen</th>
+          <th>Tore</th>
+          <th>Gegentore</th>
+          <th>Tordifferenz</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let team of teams; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ team.name }}</td>
+          <td>{{ team.points }}</td>
+          <td>{{ team.games }}</td>
+          <td>{{ team.wins }}</td>
+          <td>{{ team.draws }}</td>
+          <td>{{ team.losses }}</td>
+          <td>{{ team.goalsFor }}</td>
+          <td>{{ team.goalsAgainst }}</td>
+          <td>{{ team.goalDifference }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,160 @@
+$circle-diameter: 1200px;
+$inner-circle-diameter: 88%;
+$bullseye-circle-diameter: 15%;
+$inner-bullseye-circle-diameter: 50%;
+$number-size: 40px; 
+$number-distance: 25px; 
+
+$triangle-size: 618px; 
+
+.game-info {
+  top: 40%;
+  left: 50%;
+}
+
+.game-table {
+  top: 40%;
+  left: 50%
+}
+
+button {
+  margin-right: 8px; 
+}
+
+.circle {
+  width: $circle-diameter;
+  height: $circle-diameter;
+  border-radius: 50%; 
+  background-color: black; 
+  position: absolute;
+  left: 10%;
+  border: 4px solid white;
+}
+
+.number {
+  position: absolute;
+  font-size: $number-size;
+  width: $number-size;
+  height: $number-size;
+  text-align: center;
+  line-height: $number-size;
+  border-radius: 50%;
+  color: white;
+  background-color: rgba(255, 255, 255, 0) !important;
+}
+
+.inner-circle {
+  position: absolute;
+  width: $inner-circle-diameter;
+  height: $inner-circle-diameter;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px solid white;
+  background-color: #7f8c8d;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid white;
+}
+
+.triangle-container {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+  background-color: rgba(255, 255, 255, 0) !important;
+  }
+  
+.triangle {
+	position: absolute;
+	width: 160px;
+	height: 500px;
+  border-radius: 25px;
+	clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+	background-color: white;
+}
+
+.triangle-black {
+	background-color: black;
+}
+
+.tripple {
+	position: absolute;
+	width: 100px;
+	height: 50px;
+  top: 50%;
+  left: 20%;
+	background-color: #c0392b;
+  border: 2px solid white;
+}
+
+.double {
+	position: absolute;
+  border-radius: 0px 0px 20px 20px;
+	width: 160px;
+	height: 50px;
+  top: 90%;
+  left: 0%;
+	background-color: #c0392b;
+  border: 2px solid white;
+}
+
+.green {
+	background-color: #16a085;
+  ;
+}
+
+.bullseye {
+  position: absolute;
+  width: $bullseye-circle-diameter;
+  height: $bullseye-circle-diameter;
+  border-radius: 50%;
+  background-color: #16a085;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid white;
+}
+
+.inner-bullseye {
+  position: absolute;
+  width: $inner-bullseye-circle-diameter;
+  height: $inner-bullseye-circle-diameter;
+  border-radius: 50%;
+  background-color: #c0392b;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid white;
+}
+
+.red-text {
+  color: red;
+}
+
+.green-text {
+  color: green;
+}
+
+.highlight {
+  background-color: #2980b9;
+}
+
+@for $i from 1 through 20 {
+  $angle: (108.5 - (18 * $i)) * 1deg;
+  $radius: $circle-diameter / 2 - $number-size;
+  $top-offset: sin($angle) * $radius + 17; 
+  $left-offset: cos($angle) * $radius - 20; 
+  $angle-triangle: (287.5 - (18 * $i)) * 1deg;
+  $angle-radius: $triangle-size / 2 - $number-size;
+  $top-triangle-offset: sin($angle-triangle) * $angle-radius; 
+  $left-triangle-offset: cos($angle-triangle) * $angle-radius; 
+  .number:nth-child(#{$i}) {
+    top: calc(50% - #{$top-offset});
+    left: calc(50% + #{$left-offset});
+  }
+  .triangle:nth-child(#{$i}) {
+    top: calc(50% + #{$top-triangle-offset - 250 });
+    left: calc(50% + #{$left-triangle-offset - 80});
+    transform: rotate($angle-triangle - 90deg); 
+  }
+}

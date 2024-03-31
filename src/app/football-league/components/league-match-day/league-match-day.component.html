@@ -1,0 +1,45 @@
+<div class="card">
+  <div class="card-body">
+    <h3 class="card-title">{{ matchDay }}. Spieltag</h3>
+    <div *ngFor="let match of matches">
+      <div *ngIf="matchDay == match.matchDay">
+        <p>
+          {{ match.homeTeam }} vs. {{ match.awayTeam }}
+          <input
+            type="number"
+            [(ngModel)]="match.homeGoals"
+            placeholder="Heimtore"
+            style="width: 60px; margin-left: 10px"
+          />
+          <input
+            type="number"
+            [(ngModel)]="match.awayGoals"
+            placeholder="Auswärtstore"
+            style="width: 60px; margin-left: 10px"
+          />
+        </p>
+      </div>
+    </div>
+    <button
+      *ngIf="matchDay > 1"
+      class="btn btn-primary"
+      (click)="lastMatchDay()"
+    >
+      Vorheriger Spieltag
+    </button>
+    <button
+      *ngIf="matchDay < totalMatchDays"
+      class="btn btn-primary"
+      (click)="nextMatchDay()"
+    >
+      Nächster Spieltag
+    </button>
+    <button
+      *ngIf="matchDay == totalMatchDays"
+      class="btn btn-danger"
+      (click)="onEndSeason()"
+    >
+      Saison Beenden
+    </button>
+  </div>
+</div>

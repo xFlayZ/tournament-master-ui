@@ -1,0 +1,22 @@
+<form class="example-form" (submit)="submitForm()">
+  <label for="name">Name:</label>
+  <input type="text" [(ngModel)]="name" id="name" name="name" required />
+
+  <label for="description">Beschreibung:</label>
+  <input
+    type="text"
+    [(ngModel)]="description"
+    id="description"
+    name="description"
+    required
+  />
+
+  <button type="submit" class="submit-button">Senden</button>
+</form>
+
+<ul class="example-list">
+  <li *ngFor="let example of examples" class="example-item">
+    <span class="example-name">{{ example.name }}</span> -
+    <span class="example-description">{{ example.description }}</span>
+  </li>
+</ul>

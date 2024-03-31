@@ -1,0 +1,108 @@
+<form>
+  <div class="form-group card">
+    <div class="card-body">
+      <h3 class="card-title">Voreinstellungen</h3>
+      <button type="button" class="btn btn-primary" (click)="addPlayer()">
+        Spieler Hinzufügen
+      </button>
+      <button type="submit" class="btn btn-success" (click)="startGame()">
+        Spiel Starten
+      </button>
+      <app-error-message
+        *ngIf="errorMessage"
+        [errorMessage]="errorMessage"
+      ></app-error-message>
+      <input
+        type="text"
+        class="form-control mt-3"
+        id="newPlayerName"
+        placeholder="Spieler 1"
+        [(ngModel)]="newPlayerName"
+        [ngModelOptions]="{ standalone: true }"
+      />
+
+      <p class="mt-3">Teilnehmer:</p>
+      <ul class="mt-3">
+        <li *ngFor="let player of players">
+          {{ player }}
+          <span
+            class="delete-player"
+            (click)="removePlayer(players.indexOf(player))"
+          >
+            <i class="fas fa-trash-alt" style="color: red"></i>
+          </span>
+        </li>
+      </ul>
+
+      <div class="row">
+        <div class="col">
+          <div class="mode">
+            <h5 class="mt-3"><u>Modus</u></h5>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="mode"
+                id="mode301"
+                value="301"
+                [checked]="mode === '301'"
+                (change)="updateMode('301')"
+                checked
+              />
+              <label class="form-check-label" for="mode301"> 301 </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="mode"
+                id="mode501"
+                value="501"
+                [checked]="mode === '501'"
+                (change)="updateMode('501')"
+              />
+              <label class="form-check-label" for="mode501"> 501 </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="difficulty">
+            <h5 class="mt-3"><u>Schwierigkeit</u></h5>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="difficulty"
+                id="singleOut"
+                value="Single Out"
+                [checked]="difficulty === 'Single Out'"
+                (change)="updateDifficulty('Single Out')"
+                checked
+              />
+              <label class="form-check-label" for="singleOut">
+                Single Out
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="difficulty"
+                id="doubleOut"
+                value="Double Out"
+                [checked]="difficulty === 'Double Out'"
+                (change)="updateDifficulty('Double Out')"
+              />
+              <label class="form-check-label" for="doubleOut">
+                Double Out
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<app-dart-preset-info></app-dart-preset-info>
