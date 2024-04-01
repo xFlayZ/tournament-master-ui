@@ -432,11 +432,11 @@
     <div class="col-md-6">
       <div class="game-info card">
         <div class="card-body">
-          <p class="display-3 text-center">
+          <p class="gameData text-center mt-5">
             <strong>{{ gameData[currentPlayerCount].player }}</strong>
           </p>
           <div *ngIf="gameData[currentPlayerCount].score == 0" class="winner">
-            <p class="display-6 text-center">
+            <p class="gameData text-center">
               <strong class="green-text">hat Gewonnen!</strong>
             </p>
             <div class="text-center mt-5">
@@ -450,10 +450,10 @@
             </div>
           </div>
           <div *ngIf="gameData[currentPlayerCount].score > 0" class="inGame">
-            <p class="display-6 text-center mt-5">
+            <p class="text-center mt-5">
               <strong>Verbleibende Punkte: </strong>
             </p>
-            <p class="display-6 text-center">
+            <p class="text-center">
               <strong *ngIf="!thrownOver">{{
                 gameData[currentPlayerCount].score - hitTotal
               }}</strong>
@@ -462,26 +462,26 @@
 
             <div class="row mt-5">
               <div class="col">
-                <p class="display-6">
+                <p>
                   <strong>1. Dart:</strong>
                 </p>
-                <p class="display-6 text-center">
+                <p class="text-center">
                   <strong>{{ hitOne }}</strong>
                 </p>
               </div>
               <div class="col">
-                <p class="display-6">
+                <p>
                   <strong>2. Dart:</strong>
                 </p>
-                <p class="display-6 text-center">
+                <p class="text-center">
                   <strong>{{ hitTwo }}</strong>
                 </p>
               </div>
               <div class="col">
-                <p class="display-6">
+                <p>
                   <strong>3. Dart:</strong>
                 </p>
-                <p class="display-6 text-center">
+                <p class="text-center">
                   <strong>{{ hitThree }}</strong>
                 </p>
               </div>
@@ -507,11 +507,9 @@
           </div>
         </div>
       </div>
-      <div class="game-table card mt-5">
-        <div class="card-body">
-          Übersicht der Aktuellen Tabelle (In Arbeit..)
-        </div>
-      </div>
+    </div>
+    <div class="game-table card mt-5">
+      <div class="card-body">Übersicht der Aktuellen Tabelle (In Arbeit..)</div>
     </div>
   </div>
 </div>
