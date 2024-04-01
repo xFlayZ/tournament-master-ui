@@ -466,7 +466,15 @@
                   <strong>1. Dart:</strong>
                 </p>
                 <p class="text-center">
-                  <strong>{{ hitOne }}</strong>
+                  <strong *ngIf="status === 'first'">-</strong>
+                  <strong
+                    *ngIf="
+                      status === 'second' ||
+                      status === 'third' ||
+                      status === 'next'
+                    "
+                    >{{ hitOne }}</strong
+                  >
                 </p>
               </div>
               <div class="col">
@@ -474,7 +482,12 @@
                   <strong>2. Dart:</strong>
                 </p>
                 <p class="text-center">
-                  <strong>{{ hitTwo }}</strong>
+                  <strong *ngIf="status === 'first' || status === 'second'"
+                    >-</strong
+                  >
+                  <strong *ngIf="status === 'third' || status === 'next'">{{
+                    hitTwo
+                  }}</strong>
                 </p>
               </div>
               <div class="col">
@@ -482,7 +495,15 @@
                   <strong>3. Dart:</strong>
                 </p>
                 <p class="text-center">
-                  <strong>{{ hitThree }}</strong>
+                  <strong
+                    *ngIf="
+                      status === 'first' ||
+                      status === 'second' ||
+                      status === 'third'
+                    "
+                    >-</strong
+                  >
+                  <strong *ngIf="status === 'next'">{{ hitThree }}</strong>
                 </p>
               </div>
             </div>

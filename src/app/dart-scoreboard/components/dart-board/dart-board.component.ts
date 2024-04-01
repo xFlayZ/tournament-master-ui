@@ -73,17 +73,30 @@ shuffleArray(array: any[]) {
 
   deleteLastDart() {
     if (this.status == "second") {
-      this.gameData[this.currentPlayerCount].score = this.gameData[this.currentPlayerCount].score + this.hitOne;
+      if (this.thrownOver) {
+        this.thrownOver = false
+        this.gameData[this.currentPlayerCount].score = this.gameData[this.currentPlayerCount].score - this.hitOne
+      } else {
+        this.gameData[this.currentPlayerCount].score = this.gameData[this.currentPlayerCount].score + this.hitOne;
+      }
       this.hitOne = 0
-      this.hitTotal = 0
-      this.status = "first"
+      this.status = "first"      
     }
     if (this.status == "third") {
-      this.gameData[this.currentPlayerCount].score = this.gameData[this.currentPlayerCount].score + this.hitTwo;
+      if (this.thrownOver) {
+        this.thrownOver = false
+        this.gameData[this.currentPlayerCount].score = this.gameData[this.currentPlayerCount].score - this.hitTwo - this.hitOne
+      } else {
+        this.gameData[this.currentPlayerCount].score = this.gameData[this.currentPlayerCount].score + this.hitTwo;
+      }
       this.hitTwo = 0
       this.status = "second"
     }
     if (this.status == "next") {
+      if (this.thrownOver) {
+        this.thrownOver = false
+        this.gameData[this.currentPlayerCount].score = this.gameData[this.currentPlayerCount].score - this.hitThree - this.hitTwo - this.hitOne
+      }
       this.gameData[this.currentPlayerCount].score = this.gameData[this.currentPlayerCount].score + this.hitThree;
       this.hitThree = 0
       this.status = "third"
