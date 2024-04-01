@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "gh-publish": "ng build --base-href 'https://xflayz.github.io/tournament-master-ui/' && npx angular-cli-ghpages --dir=dist/tournament-master-ui"
   },
   "private": true,
   "dependencies": {
