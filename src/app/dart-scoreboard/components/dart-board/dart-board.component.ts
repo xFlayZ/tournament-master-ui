@@ -30,7 +30,9 @@ export class DartBoardComponent implements OnInit {
   setupGame(players: string[], mode: string, difficulty: string) {
     const modeNum = parseInt(mode, 10);
 
-    this.gameData = players.map(player => ({
+    const shuffledPlayers = this.shuffleArray(players);
+
+    this.gameData = shuffledPlayers.map(player => ({
         player: player,
         score: modeNum
     }));
@@ -40,8 +42,17 @@ export class DartBoardComponent implements OnInit {
     this.hitTwo = 0;
     this.hitThree = 0;
     this.hitTotal = 0;
-    this.status = "first"
-  }
+    this.status = "first";
+}
+
+shuffleArray(array: any[]) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
 
   updateGameData() {
     if (!this.thrownOver) {
