@@ -491,6 +491,7 @@
                 type="button"
                 class="btn btn-primary"
                 (click)="updateGameData()"
+                [disabled]="status !== 'next'"
               >
                 Nächster Spieler
               </button>
@@ -498,6 +499,7 @@
                 type="button"
                 class="btn btn-primary"
                 (click)="deleteLastDart()"
+                [disabled]="status === 'first'"
               >
                 Letzten Wurf löschen
               </button>

@@ -62,17 +62,18 @@ export class DartBoardComponent implements OnInit {
 
   deleteLastDart() {
     if (this.status == "second") {
+      this.gameData[this.currentPlayerCount].score = this.gameData[this.currentPlayerCount].score + this.hitOne;
       this.hitOne = 0
       this.hitTotal = 0
       this.status = "first"
     }
     if (this.status == "third") {
-      this.hitTotal = this.hitTotal - this.hitTwo
+      this.gameData[this.currentPlayerCount].score = this.gameData[this.currentPlayerCount].score + this.hitTwo;
       this.hitTwo = 0
       this.status = "second"
     }
     if (this.status == "next") {
-      this.hitTotal = this.hitTotal - this.hitThree
+      this.gameData[this.currentPlayerCount].score = this.gameData[this.currentPlayerCount].score + this.hitThree;
       this.hitThree = 0
       this.status = "third"
     }
@@ -110,7 +111,6 @@ export class DartBoardComponent implements OnInit {
   calcScore(hit: number) {
     if (this.gameData[this.currentPlayerCount].score > 0) {
       if (hit > this.gameData[this.currentPlayerCount].score) {
-        console.log("Überworfen!")
         this.thrownOver = true
         this.gameData[this.currentPlayerCount].score = this.gameData[this.currentPlayerCount].score + this.hitOne + this.hitTwo
         this.status = "next"
