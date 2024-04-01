@@ -1,0 +1,8 @@
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: #bdc3c7;
+    text-align: center;
+    padding: 1px 0;
+  }
