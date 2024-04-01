@@ -17,6 +17,7 @@ import { DartScoreboardPresetComponent } from './dart-scoreboard/components/dart
 import { DartBoardComponent } from './dart-scoreboard/components/dart-board/dart-board.component';
 import { DartPresetInfoComponent } from './dart-scoreboard/components/dart-preset-info/dart-preset-info.component';
 import { ErrorMessageComponent } from './shared/components/error-message/error-message.component';
+import { OverviewComponent } from './overview/overview.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ErrorMessageComponent } from './shared/components/error-message/error-m
     DartScoreboardPresetComponent,
     DartBoardComponent,
     DartPresetInfoComponent,
-    ErrorMessageComponent
+    ErrorMessageComponent,
+    OverviewComponent
   ],
   imports: [
     BrowserModule,
