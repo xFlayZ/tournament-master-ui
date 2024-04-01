@@ -1,6 +1,7 @@
 {
   "name": "tournament-master-ui",
   "version": "0.0.0",
+  "homepage": "http://xflayz.github.io/tournament-master-ui",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
